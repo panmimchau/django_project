@@ -7,7 +7,8 @@ IDEA_STATUS = (
     ('rejected', 'Rejected')
 )
 
-
+# create your models here
+# python manage.py makemigrations -> migrate -> runserver
 class Idea(models.Model):
     title = models.CharField(max_length=255)
     description = models.TextField()
