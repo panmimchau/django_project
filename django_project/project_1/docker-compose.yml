@@ -1,0 +1,19 @@
+#zawiera info o tym jakie beda potrzebne uslugi
+version: "3.9"
+
+services:
+  db:
+    image: postgres
+    environment:
+      - POSTGRES_DB=project_1
+      - POSTGRES_USER=project_1
+      - POSTGRES_PASSWORD=project_1  
+  web:
+    build: . #plik Dockerfile znajduje sie w tym samym folderze
+    command: python manage.py runserver 0.0.0.0:8000 #komenda ktora ma zostac wywolana po uruchomieniu kontenera
+    volumes:
+      - .:/code/
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db #web sie nie uruchomi poki nie wstanie kontener db
