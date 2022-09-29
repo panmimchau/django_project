@@ -8,6 +8,8 @@ services:
       - POSTGRES_DB=project_1
       - POSTGRES_USER=project_1
       - POSTGRES_PASSWORD=project_1  
+    ports:
+      - "5432:5432"
   web:
     build: . #plik Dockerfile znajduje sie w tym samym folderze
     command: python manage.py runserver 0.0.0.0:8000 #komenda ktora ma zostac wywolana po uruchomieniu kontenera
